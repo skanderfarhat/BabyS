@@ -1,5 +1,6 @@
 package com.example.asus.babysittor;
 
+import android.content.Intent;
 import android.view.WindowManager;
 import  android.view.animation.Animation;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar.setMax(100);
         progressBar.setScaleY(3f);
-        progressAnimation();
+        //progressAnimation();
+        this.startActivity(new Intent(this, GoogleLog.class));
     }
 
     public void progressAnimation(){

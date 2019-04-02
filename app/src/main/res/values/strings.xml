@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BabySittor</string>
+    <string name="title_activity_posting">Posting</string>
 </resources>

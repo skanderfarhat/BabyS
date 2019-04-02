@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "276836862144",
+    "firebase_url": "https://babysit-7344e.firebaseio.com",
+    "project_id": "babysit-7344e",
+    "storage_bucket": "babysit-7344e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276836862144:android:c3ffeabaa2cc5c85",
+        "android_client_info": {
+          "package_name": "com.example.asus.babysittor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276836862144-tkdk9v04o604e52521m0s52h5p86kmal.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.babysittor",
+            "certificate_hash": "435e390dc13f7a22c61ed989c047eb4c9610c264"
+          }
+        },
+        {
+          "client_id": "276836862144-9ocecs4idi9f9407ehhkmo9pibdlsqoa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm2cGfM9HXPeDsyosRF1A4BsJSuPWNVMk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276836862144-00lejat8tjq6hqt0fofkipnsa853q4c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
