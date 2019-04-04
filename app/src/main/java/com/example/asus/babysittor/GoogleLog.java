@@ -180,7 +180,7 @@ public class GoogleLog extends AppCompatActivity implements
             ref.child("personName").setValue(personName);
             ref.child("personEmail").setValue(personEmail);
             ref.child("personPhoto").setValue(personPhoto);
-            ref.child("ProfileSetted").setValue(false);
+            ref.child("ProfileSetted").setValue(true);
 
             Intent intent = new Intent(GoogleLog.this, ProfileSetting.class);
             intent.putExtra("personName", personName);
