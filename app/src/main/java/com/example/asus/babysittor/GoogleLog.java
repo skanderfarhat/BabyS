@@ -70,12 +70,14 @@ public class GoogleLog extends AppCompatActivity implements
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // [END build_client]
 
+
         // [START customize_button]
         // Set the dimensions of the sign-in button.
         SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
         // [END customize_button]
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseApp.initializeApp(this);
@@ -169,7 +171,7 @@ public class GoogleLog extends AppCompatActivity implements
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
 
-            String personName = account.getDisplayName();
+            String personName = account.getGivenName();
             String personEmail = account.getEmail();
             String personId = account.getId();
             Uri personPhoto = account.getPhotoUrl();

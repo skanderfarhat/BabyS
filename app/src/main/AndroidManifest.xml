@@ -15,9 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MyPosts"
+            android:label="@string/title_activity_my_posts"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Posting"
             android:label="@string/title_activity_posting"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Firebase" />
         <activity android:name=".GoogleLog" />
 

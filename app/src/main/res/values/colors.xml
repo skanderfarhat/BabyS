@@ -6,5 +6,8 @@
 
     <color name="red">#F44336</color>
     <color name="green">#4caf50</color>
+    <color name="primary_dark_text">#28333D</color>
+    <color name="secondary_text">#434343</color>
+    <color name="circle_image_shadow">#8b8b8b</color>
 
 </resources>

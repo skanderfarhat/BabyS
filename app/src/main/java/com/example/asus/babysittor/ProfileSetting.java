@@ -59,7 +59,7 @@ public class ProfileSetting extends Activity {
         String personId = intent.getStringExtra("personId");
         String ProfileSetted = intent.getStringExtra("ProfileSetted");
         DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("User").child(personId);
-        nameEditText.setText(personId);
+        nameEditText.setText(personName);
 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 

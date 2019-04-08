@@ -1,5 +1,6 @@
 package com.example.asus.babysittor;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,7 +21,7 @@ public class Posting extends AppCompatActivity {
     EditText Title;
     EditText Description;
     //private DatabaseReference mDatabase;
-
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,8 @@ public class Posting extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
-  //      FirebaseApp.initializeApp(this);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        FirebaseApp.initializeApp(this);
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -54,14 +55,26 @@ public class Posting extends AppCompatActivity {
                 }
                 else
                 {
-                  /*  DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("User").child("Hello");
+                    String key = FirebaseDatabase.getInstance().getReference("Posts").push().getKey();
+                    DatabaseReference ref=FirebaseDatabase.getInstance().getReference().child("Posts").child(key);
 
-                    ref.child("userId").setValue("1");
                     ref.child("Title").setValue(Title.getText().toString());
-                    ref.child("Description").setValue(Description.getText().toString());*/
+                    ref.child("Description").setValue(Description.getText().toString());
+                    ref.child("Stillalive").setValue(true);
                     Snackbar.make(view," Votre annonce a été crée avec succés", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
+
+                    Title.setText(null);
+                    Description.setText(null);
                 }
+            }
+        });
+        FloatingActionButton delete = findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Posting.this, MyPosts.class);
+                startActivityForResult(intent, 1);
             }
         });
     }
