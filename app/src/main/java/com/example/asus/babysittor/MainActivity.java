@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar.setMax(100);
         progressBar.setScaleY(3f);
-        //progressAnimation();
-        this.startActivity(new Intent(this, GoogleLog.class));
+        progressAnimation();
+       // this.startActivity(new Intent(this, GoogleLog.class));
     }
 
     public void progressAnimation(){

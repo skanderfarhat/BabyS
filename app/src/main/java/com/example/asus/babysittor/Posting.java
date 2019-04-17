@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -32,6 +34,7 @@ public class Posting extends AppCompatActivity {
         Description = findViewById(R.id.descriptionEditText);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        final GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseApp.initializeApp(this);
@@ -61,6 +64,7 @@ public class Posting extends AppCompatActivity {
                     ref.child("Title").setValue(Title.getText().toString());
                     ref.child("Description").setValue(Description.getText().toString());
                     ref.child("Stillalive").setValue(true);
+                    ref.child("userId").setValue(account.getId());
                     Snackbar.make(view," Votre annonce a été crée avec succés", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
 
