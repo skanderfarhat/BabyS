@@ -1,18 +1,16 @@
-package com.example.asus.babysittor;
+package com.example.asus.babysittor.views;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.asus.babysittor.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.FirebaseApp;
@@ -23,10 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Random;
-import java.util.UUID;
-
-public class MyPosts extends AppCompatActivity {
+public class MyPostsBBS extends AppCompatActivity {
     String title;
     boolean isFirstPost=true;
     private DatabaseReference mDatabase;
@@ -55,8 +50,7 @@ public class MyPosts extends AppCompatActivity {
                     TextView detailsTextView = findViewById(R.id.detailsTextView);
 
                     for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                        if (account.getId().equals(ds.child("userId").getValue(String.class)))
-                        {
+
                             String key = ds.getKey();
                             String description = ds.child("Description").getValue(String.class);
                             title = ds.child("Title").getValue(String.class);
@@ -85,36 +79,18 @@ public class MyPosts extends AppCompatActivity {
                                 textView2.setText(description);
                                 cardView.addView(textView1);
                                 cardView.addView(textView2);
-                                LL.addView(cardView);}
-                        }
+                                LL.addView(cardView);
+                                cardView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Snackbar.make(v, "Félicitation vous avez postulé a cette offre", Snackbar.LENGTH_LONG)
+                                                .setAction("Action", null).show();
+                                    }
+                                });}
+
 
                     }
-                  /*  CardView mm = findViewById(R.id.card_view1);
-                    CardView cardView = new CardView(getApplicationContext());
-                    getCardviewParam(cardView,mm);
 
-                    RelativeLayout rl = findViewById(R.id.rl);
-                    RelativeLayout rm = new RelativeLayout(getApplicationContext());
-                    rm.setLayoutParams(rl.getLayoutParams());
-
-                    ImageView img = findViewById(R.id.postImageView1);
-
-                    ImageView img1 = new ImageView(getApplicationContext());
-                    img1.setLayoutParams(img.getLayoutParams());
-                    img1.setScaleType(img.getScaleType());
-                    Random number = new Random();
-                    img.setId(number.nextInt(2000));
-                    rm.addView(img1);
-
-                    cardView.addView(rm);
-
-                    TextView textView = findViewById(R.id.titleTextView1);
-                    TextView textView1 = new TextView(getApplicationContext());
-                    textView1.setId(number.nextInt(2000));
-                    getTextviewParam(textView1,textView,title);
-                    rm.addView(textView1 ,textView.getLayoutParams());
-                    LinearLayout LL = findViewById(R.id.LL);
-                    LL.addView(cardView);*/
 
                 }
             }

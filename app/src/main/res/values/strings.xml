@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BabySittor</string>
     <string name="title_activity_posting">Poster votre annonce</string>
-    <string name="title_activity_my_posts">MyPosts</string>
+    <string name="title_activity_my_posts">Mes Annonces</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

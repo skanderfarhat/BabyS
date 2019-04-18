@@ -45,6 +45,8 @@ public class GoogleLog extends AppCompatActivity implements
     private static final int RC_SIGN_IN = 9001;
     private GoogleSignInClient mGoogleSignInClient;
     private DatabaseReference mDatabase;
+    Intent intent = getIntent();
+    String PersonType = intent.getStringExtra("PersonType");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,12 +184,14 @@ public class GoogleLog extends AppCompatActivity implements
             ref.child("personName").setValue(personName);
             ref.child("personEmail").setValue(personEmail);
             ref.child("personPhoto").setValue(personPhoto);
-            ref.child("ProfileSetted").setValue(true);
+            ref.child("ProfileSetted").setValue(false);
+            ref.child("PersonType").setValue(PersonType);
 
             Intent intent = new Intent(GoogleLog.this, ProfileSetting.class);
             intent.putExtra("personName", personName);
             intent.putExtra("personPhoto", personPhoto);
             intent.putExtra("personId", personId);
+            intent.putExtra("PersonType", PersonType);
             startActivityForResult(intent, 1);
 
         } else {

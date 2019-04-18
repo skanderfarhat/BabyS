@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="horizontal"
+    android:background="@drawable/bbs"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
@@ -16,6 +17,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:thumb="@drawable/rectangle_thumb"
+        android:text="Je cherche un BabySitter"
+        android:textColor="@color/red"
+        android:textSize="20dp"
         android:track="@drawable/rectangle_track"/>
 
 
@@ -25,6 +29,9 @@
         android:layout_height="wrap_content"
         android:thumb="@drawable/round_thumb"
         android:track="@drawable/round_track"
+        android:text="Je suis un BabySitter       "
+        android:textColor="@color/red"
+        android:textSize="20dp"
         android:layout_below="@id/family_switch"/>
 
     <Button
@@ -33,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/bbs_switch"
         android:layout_gravity="bottom"
-        android:text="Button" />
+        android:text="Valider" />
+
 
 </RelativeLayout>

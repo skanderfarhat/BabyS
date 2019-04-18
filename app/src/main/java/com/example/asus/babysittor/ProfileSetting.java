@@ -9,12 +9,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.asus.babysittor.views.MyPostsBBS;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -58,20 +60,44 @@ public class ProfileSetting extends Activity {
         String personName = intent.getStringExtra("personName");
         String personId = intent.getStringExtra("personId");
         String ProfileSetted = intent.getStringExtra("ProfileSetted");
+        final String PersonType = intent.getStringExtra("PersonType");
         DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("User").child(personId);
         nameEditText.setText(personName);
 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        Button Save= findViewById(R.id.Save);
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+                if (PersonType=="FML")
+                {
+                    Intent intent = new Intent(ProfileSetting.this, Posting.class);
+                    startActivityForResult(intent, 1);}
+                else if (PersonType=="BBS")
+                {
+                    Intent intent = new Intent(ProfileSetting.this, MyPostsBBS.class);
+                    startActivityForResult(intent, 1);}
+            }
+        });
         Query query = db.child("User").child(personId).child("ProfileSetted");
+
+
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists())
                 {
                     if(dataSnapshot.getValue().toString()=="true"){
+                        if (PersonType=="FML")
+                        {
                         Intent intent = new Intent(ProfileSetting.this, Posting.class);
-                        startActivityForResult(intent, 1);
+                        startActivityForResult(intent, 1);}
+                        else if (PersonType=="BBS")
+                        {
+                            Intent intent = new Intent(ProfileSetting.this, MyPostsBBS.class);
+                            startActivityForResult(intent, 1);}
                     }
                 }
             }

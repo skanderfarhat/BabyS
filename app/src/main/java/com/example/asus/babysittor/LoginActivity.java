@@ -44,12 +44,18 @@ public class LoginActivity extends AppCompatActivity {
                     switch1.setChecked(true);
             }
         });
-        StartProfileSetting = new Intent(this,ProfileSetting.class);
+        StartProfileSetting = new Intent(this,GoogleLog.class);
+        if (switch1.isChecked())
+            StartProfileSetting.putExtra("PersonType", "FML");
+        else
+            StartProfileSetting.putExtra("PersonType", "BBS");
+
+
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(StartProfileSetting);
+                if (switch1.isChecked() || switch2.isChecked() )
+                    startActivity(StartProfileSetting);
             }
         });
     }
